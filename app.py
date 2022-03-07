@@ -14,7 +14,7 @@ dotenv_path = Path('.env')
 load_dotenv(dotenv_path=dotenv_path)
 
 SLACK_BOT_TOKEN = os.getenv('SLACK_BOT_TOKEN')
-SLACK_APP_TOKEN = os.getenv('SLACK_APP_TOKEN')
+APP_TOKEN = os.getenv('APP_TOKEN')
 
 app = App(token=SLACK_BOT_TOKEN)
 
@@ -58,4 +58,4 @@ def download_memes(ack, respond, command):
         respond(f'Download failed: {e}')
 
 if __name__ == '__main__':
-    SocketModeHandler(app, SLACK_APP_TOKEN).start()
+    SocketModeHandler(app, APP_TOKEN).start()
