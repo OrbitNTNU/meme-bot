@@ -6,7 +6,6 @@ import urllib.request
 from pathlib import Path
 from slack_bolt import App
 from dotenv import load_dotenv
-from calendar import WEDNESDAY
 from slack_sdk.errors import SlackApiError
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 
@@ -32,8 +31,7 @@ def download_memes(ack, respond, command):
     try:
         result = app.client.files_list(
             token=SLACK_BOT_TOKEN,
-            channel='CTSDZBQBW',
-            ts_from=get_ts_from()
+            channel='CTSDZBQBW'
         )
 
         respond(f'Starting file download...\nFiles: {len(result["files"])}')
