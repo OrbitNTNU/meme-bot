@@ -51,9 +51,9 @@ def download_memes(ack, respond, command):
                 downloaded += 1
 
             respond(f'Download complete\nDownloaded {downloaded}/{len(result["files"])} files.')
-            respond('Starting resizing')
-            subprocess.call(f'{CWD}/resize-images.sh')
-            respond('Resize complete')
+        respond('Starting resizing')
+        subprocess.call(f'{CWD}/resize-images.sh')
+        respond('Resize complete')
             
     except SlackApiError as e:
         respond(f'Download failed: {e}')
